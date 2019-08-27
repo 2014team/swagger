@@ -30,7 +30,7 @@ public class UserController {
         return list;
     }
 
-    @ApiOperation(value="获取单个user", notes="参数非json格式",httpMethod = "POST")
+    @ApiOperation(value="获取单个user", notes="传入json格式",httpMethod = "POST")
     @PostMapping("/getOne")
     public Object getOne(@RequestBody @Valid User user, BindingResult result){
         JsonResult jsonResult = new JsonResult();
