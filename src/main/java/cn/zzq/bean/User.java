@@ -17,6 +17,7 @@ public class User {
     @NotEmpty(message="性别不能为空")
     private String gender;
 
+    @ApiModelProperty(value="年龄")
     @NotNull(message="年龄不能为空")
     @Min(value=18,message="必须年满18岁！")
     @Max(value=30,message="年龄不能大于30岁！")

@@ -3,19 +3,16 @@ package cn.zzq.controller;
 import cn.zzq.bean.JsonResult;
 import cn.zzq.bean.User;
 import io.swagger.annotations.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Api(value="User的相关信息接口",description="User的相关信息接口", protocols = "http")
+@Api(value="User的相关信息接口",description="User的相关信息接口", protocols="http")
 @RestController
 public class UserController {
 
@@ -33,7 +30,7 @@ public class UserController {
         return list;
     }
 
-    @ApiOperation(value="获取单个user", notes="传入json格式",httpMethod = "POST")
+    @ApiOperation(value="获取单个user", notes="参数非json格式",httpMethod = "POST")
     @PostMapping("/getOne")
     public Object getOne(@RequestBody @Valid User user, BindingResult result){
         JsonResult jsonResult = new JsonResult();
@@ -72,7 +69,7 @@ public class UserController {
         return u;
     }
 
-    @ApiOperation(value="修改用户",notes="不是json格式", httpMethod="POST")
+    @ApiOperation(value="修改用户",notes="参数非json格式", httpMethod="POST")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType="query", name = "name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(paramType="query", name = "possword", value = "密码", required = true, dataType = "String")
